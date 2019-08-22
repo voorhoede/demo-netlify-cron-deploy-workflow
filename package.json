@@ -1,0 +1,21 @@
+{
+  "name": "demo-netlify-cron-deploy-workflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rm -rf dist/ && mkdir -p dist/",
+    "build": "node index.js >> dist/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voorhoede/demo-netlify-cron-deploy-workflow.git"
+  },
+  "keywords": [],
+  "author": "De Voorhoede (https://voorhoede.nl/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voorhoede/demo-netlify-cron-deploy-workflow/issues"
+  },
+  "homepage": "https://github.com/voorhoede/demo-netlify-cron-deploy-workflow#readme"
+}
