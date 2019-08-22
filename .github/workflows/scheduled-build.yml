@@ -15,4 +15,4 @@ jobs:
         -d {}
         ${NETLIFY_CRON_BUILD_HOOK}
       env:
-        NETLIFY_CRON_BUILD_HOOK: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
+        NETLIFY_CRON_BUILD_HOOK: "https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_CRON_BUILD_HOOK }}"
