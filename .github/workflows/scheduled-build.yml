@@ -9,10 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Trigger our build webhook on Netlify
-      run: >-
-        curl
-        -X POST
-        -d {}
-        ${NETLIFY_CRON_BUILD_HOOK}
+      run: curl -X POST -d {} "${URL}${TOKEN}?trigger_title=${TITLE}"
       env:
-        NETLIFY_CRON_BUILD_HOOK: "https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_CRON_BUILD_HOOK }}"
+        URL: "https://api.netlify.com/build_hooks/"
+        TOKEN: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
+        TITLE: "triggered by GitHub cron action"
