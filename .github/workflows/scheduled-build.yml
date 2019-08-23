@@ -2,15 +2,14 @@ name: Scheduled build
 
 on:
   schedule:
-  - cron:  '05 * * * *'
+  - cron: '5 * * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Trigger our build webhook on Netlify
-      run: curl -X POST -d {} "${URL}${TOKEN}?trigger_title=${TITLE}"
+      run: curl -X POST $BUILD_HOOK_URL
       env:
-        URL: "https://api.netlify.com/build_hooks/"
         TOKEN: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
-        TITLE: "triggered by GitHub cron action"
+        BUILD_HOOK_URL: "https://api.netlify.com/build_hooks/${TOKEN}"
